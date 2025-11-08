@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@my-app/backend": ["../backend/src"],
+      "@my-app/shared": ["../shared/src"],
+      "@my-app/db": ["../db/src"]
+    },
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "../backend" }, { "path": "../shared" }]
+}

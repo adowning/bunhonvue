@@ -1,0 +1,21 @@
+{
+  "name": "@my-app/backend",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.2.1",
+    "@my-app/db": "workspace:*",
+    "@my-app/shared": "workspace:*",
+    "@sentry/node": "^10.23.0",
+    "@supabase/supabase-js": "^2.39.8",
+    "hono": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "latest"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true, // <-- ADD THIS
+    "baseUrl": ".",
+    "outDir": "dist",
+    "paths": {
+      "@/*": ["src/*"],
+      "@views/*": ["./src/views/*"],
+      "@imgs/*": ["./src/assets/img/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@stores/*": ["./src/store/*"],
+      "@plugins/*": ["./src/plugins/*"],
+      "@styles/*": ["./src/assets/styles/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "../packages/db" }, { "path": "../packages/shared" }]
+}

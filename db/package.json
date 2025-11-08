@@ -1,0 +1,21 @@
+{
+  "name": "@my-app/db",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "dependencies": {
+    "@my-app/shared": "workspace:",
+    "drizzle-orm": "catalog:",
+    "drizzle-zod": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.0",
+    "@types/pg": "^8.11.0"
+  },
+  "scripts": {
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "bun run src/migrate.ts",
+    "build": "tsc"
+  }
+}

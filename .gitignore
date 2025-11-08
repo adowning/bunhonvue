@@ -1,0 +1,20 @@
+# Bun
+node_modules
+bun.lockb
+.DS_Store
+
+# IDE
+.idea
+.vscode
+
+# Build
+dist
+out
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Drizzle
+migrations/meta

@@ -1,0 +1,43 @@
+{
+  "name": "bun-hono-vue-monorepo",
+  "private": true,
+  "scripts": {
+    "dev:be": "bun --cwd backend dev",
+    "dev:fe": "bun --cwd frontend dev",
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgCyan.bold\" \"bun run dev:be\" \"bun run dev:fe\"",
+    "db:generate": "bun --cwd db run db:generate",
+    "db:migrate": "bun --cwd db run db:migrate",
+    "db:push": "bun --cwd db drizzle-kit push:pg",
+    "db:pull": "bun --cwd db drizzle-kit pull:pg",
+    "db:check": "bun --cwd db drizzle-kit check:pg",
+    "db:studio": "bun --cwd db drizzle-kit studio",
+    "build": "tsc --build",
+    "deploy": "cd frontend && bun run build && cd .. && wrangler deploy"
+  },
+  "workspaces": [
+    "backend",
+    "frontend",
+    "db",
+    "shared"
+  ],
+  "catalog": {
+    "drizzle-zod": "latest",
+    "drizzle-orm": "latest",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.14.0",
+    "add": "^2.0.6",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.46.0"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.2.1",
+    "@supabase/supabase-js": "^2.39.8",
+    "bun-types": "^1.3.1",
+    "dotenv": "^17.2.3",
+    "drizzle-zod": "^0.8.3",
+    "hono": "^4.2.3"
+  }
+}
