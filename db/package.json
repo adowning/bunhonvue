@@ -4,18 +4,20 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "dependencies": {
-    "@my-app/shared": "workspace:",
-    "drizzle-orm": "catalog:",
-    "drizzle-zod": "catalog:",
-    "zod": "catalog:"
+    "@my-app/shared": "workspace:*",
+    "drizzle-orm": "^0.29.3",
+    "drizzle-zod": "^0.5.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "drizzle-kit": "^0.20.0",
     "@types/pg": "^8.11.0"
   },
   "scripts": {
     "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "bun run src/migrate.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "seed": "bun run src/seed.ts"
   }
 }
