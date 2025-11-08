@@ -70,13 +70,13 @@ export const staticRoutes: AppRouteRecordRaw[] = [
 
 export const dashboardRoutes: AppRouteRecord = {
   name: "Dashboard",
-  path: "/dashboard",
-  component: "/dashboard/ecommerce",
+  path: "",
+  component: "/console",
   meta: {
     title: "Dashboard",
     icon: "ri:pie-chart-line",
     // roles: ['R_SUPER', 'R_ADMIN']
-    roles: ["USER", "OPERATOR"],
+    roles: ["USER",'user', 'admin', "OPERATOR"],
   },
   // children: [
   //   {

@@ -1,5 +1,5 @@
 import { router } from '@/router'
-import { useUserStore } from '@/store/modules/user'
+// import { useUserStore } from '@/store/modules/user'
 import { StorageConfig } from '@/utils/storage/storage-config'
 
 /**
@@ -78,7 +78,7 @@ class StorageCompatibilityManager {
     setTimeout(() => {
       try {
         localStorage.clear()
-        useUserStore().logOut()
+        // useUserStore().logOut()
         router.push({ name: 'Login' })
         console.info('[Storage] 已执行系统登出')
       } catch (error) {

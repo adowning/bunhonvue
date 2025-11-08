@@ -1,4 +1,4 @@
-import { useUserStore } from '@/store/modules/user'
+// import { useUserStore } from '@/store/modules/user'
 import { App, Directive, DirectiveBinding } from 'vue'
 
 /**
@@ -16,9 +16,9 @@ interface RolesBinding extends DirectiveBinding
 
 function checkRolePermission(el: HTMLElement, binding: RolesBinding): void
 {
-  const userStore = useUserStore()
-  const userRoles = userStore.getUserInfo.role
-
+  // const userStore = useUserStore()
+  // const userRoles = userStore.getUserInfo.role
+const userRoles = ['user', 'admin']
   // 如果用户角色为空或未定义，移除元素
   if (!userRoles?.length) {
     removeElement(el)

@@ -50,9 +50,9 @@ export default ({ mode }: { mode: string }) => {
   console.log(`🚀 VERSION = ${VITE_VERSION}`);
 
   return defineConfig({
-    // define: {
-    //   __APP_VERSION__: JSON.stringify(VITE_VERSION),
-    // },
+    define: {
+      __APP_VERSION__: JSON.stringify(VITE_VERSION),
+    },
     // base: VITE_BASE_URL,
     server: {
       // port: Number(VITE_PORT),
