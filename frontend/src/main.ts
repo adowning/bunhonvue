@@ -28,12 +28,13 @@ import "@styles/dark.scss"; // 系统主题
 import "@utils/sys/console.ts"; // 控制台输出内容
 import { setupGlobDirectives } from "./directives";
 import { setupErrorHandle } from "./utils/sys/error-handle";
+import { initRouter } from "./router";
 
 document.addEventListener("touchstart", function () {}, { passive: false });
 
 // const app = createApp(App)
 // initStore(app)
-// initRouter(app)
+initRouter(app)
 setupGlobDirectives(app);
 setupErrorHandle(app);
 

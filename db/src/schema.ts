@@ -73,15 +73,6 @@ export const userBalanceTable = pgTable("user_balances", {
     .$onUpdate(() => new Date()),
 });
 
-export const UserBalanceSelectSchema = createSelectSchema(userBalanceTable);
-export const UserBalanceInsertSchema = createInsertSchema(userBalanceTable);
-export const UserBalanceUpdateSchema = createUpdateSchema(userBalanceTable);
-export type UserBalance = typeof userBalanceTable.$inferSelect;
-export type UserBalanceInsert = typeof userBalanceTable.$inferInsert;
-export type UserBalanceSelect = typeof userBalanceTable.$inferSelect;
-
-export type UserWithBalance = User & { userBalance: UserBalance };
-
 export const bonusStatusEnum = pgEnum("bonus_status_enum", [
   "PENDING",
   "ACTIVE",
@@ -122,17 +113,6 @@ export const depositAndBonusLogTable = pgTable("bonus_logs", {
     .notNull(),
 });
 
-export const UserBonusSelectSchema = createSelectSchema(
-  depositAndBonusLogTable
-);
-export const UserBonusInsertSchema = createInsertSchema(
-  depositAndBonusLogTable
-);
-export const UserBonusUpdateSchema = createUpdateSchema(
-  depositAndBonusLogTable
-);
-export type UserBonus = typeof depositAndBonusLogTable.$inferSelect;
-export type UserBonusInsert = typeof depositAndBonusLogTable.$inferInsert;
 
 export const betStatusEnum = pgEnum("transaction_status_enum", [
   "NSF",
@@ -179,12 +159,6 @@ export const betLogTable = pgTable(
   ]
 );
 
-export const BetLogSelectSchema = createSelectSchema(betLogTable);
-export const BetLogInsertSchema = createInsertSchema(betLogTable);
-export const BetLogUpdateSchema = createUpdateSchema(betLogTable);
-
-export type BetLog = typeof betLogTable.$inferSelect;
-export type BetLogInsert = typeof betLogTable.$inferInsert;
 
 export const operatorTable = pgTable("operators", {
   id: uuid().defaultRandom().primaryKey().notNull(),
@@ -208,12 +182,6 @@ export const operatorTable = pgTable("operators", {
 export const operatorsNameUnique = uniqueIndex("operators_name_unique").on(
   operatorTable.name
 );
-
-export const OperatorSelectSchema = createSelectSchema(operatorTable);
-export const OperatorInsertSchema = createInsertSchema(operatorTable);
-export const OperatorUpdateSchema = createUpdateSchema(operatorTable);
-export type Operator = typeof operatorTable.$inferSelect;
-export type OperatorInsert = typeof operatorTable.$inferInsert;
 
 export const sessionStatusEnum = pgEnum("session_status_enum", [
   "ACTIVE",
